@@ -43,10 +43,11 @@ begins with the doctype and html tags
 <!DOCTYPE HTML>         // specifies the kind of html being used
   <html>            // surrounds the entire html document
     <head>              //  has metadata and other; css, JS and titles are here
+      <title>Title of the page, shows up as a tab/window name</title>
     </head>
-      <body>
+    <body>
 head, body, contents of the doc (stuff you see on the screen)
-      </body>
+    </body>
   </html>
 
 #### urls
@@ -58,8 +59,8 @@ contains protocol (http, ftp), host (domain name/ip address), path
     example.com/foo?p=1&g=neat      // ?p=1&g=neat are 2 parameters, & separates
     example.com/foo#fragment        // used to reference a part of the page you
         are looking at, like the second part of a wiki; can have other uses w/JS
-        fragments are never sent to the server
-    combo:  example.com/foo?p=1#fragment    // follows query parameters
+        ***fragments are never sent to the server***
+    combo:  example.com/foo?p=1#fragment    // fragments follow query params
     
     localhost:8000/     // port: default is 80, goes between host and path
 
@@ -68,8 +69,8 @@ hypertext transfer protocol
 ex:     http://www.example.com/foo
 request from browser: 
     GET /foo HTTP/1.1   // request line (sent human-readable to the server, just
-                        like this
-                        3 parts: method (GET), path (/foo) and version (HTTP/1.1)
+                            like this
+                        3 parts: method (GET), path (/foo) and ver (HTTP/1.1)
                         path is the document you are requesting from the server
                         version (most use 1.1, there is also 1.0)
     ex: example.com/foo/logo.png?p=1#tricky
@@ -77,18 +78,25 @@ request from browser:
 
 requests include request line AND headers
 headers:        name: value
+    GET resource protocol_version
     Host: www.example.com       // host is required for http1.1
     User-Agent: Chrome v.17     // can be used to semi-identify users
                                 // values can be anything
+    valid headers have no whitespace in the name
+        the value can have anything
+    you can make up whatever headers you want, if it helps your server handle
+        data
 
 HTTP responses:
     HTTP/1.1 200 OK     // status line
-                        // 3 parts: version (same as request)
-                            status code (200, 302 = found, 404 = not found, 500
-                            = server error, etc)
-                            2** = success, 3** = try again differently, 
-                            4** = error browser-side, 5** = error server-side
-                            reason phrase (OK, not found, server error, etc)
+                        // 3 parts: 
+                    version (same as request)
+                    status code (200, 302 = found, 404 = not found, 500
+                        = server error, etc)
+                        2** = success, 3** = try again differently, 
+                        4** = error browser-side, 5** = error server-side
+                    reason phrase (OK, not found, server error, etc)
+
 headers with HTTP responses:
     Date: Tue Mar 2012 04:04:03 GMT
     Server: Apache /2.2.4       // DONT SHOW THIS UNLESS YOU WANT TO BE HACKED
@@ -96,13 +104,16 @@ headers with HTTP responses:
     Content-length: 1539        // length of html document, not required
 
 #### servers
-purpose: respond to http requests
-2 types of responses:
-    static:     pre-written files (images, videos, stuff of the 90's)
-    dynamic:    response is built on the fly by WEB APPLICATIONS
+PURPOSE: RESPOND TO HTTP requests
 
-web apps:       lives on the server, speaks http, generates content that browser
-                requests
+the purpose of the course is to learn how to build server-side web apps
+
+2 types of responses:
+    static:     returns pre-written files (images, videos, stuff of the 90's)
+    dynamic:    response is built on-the-fly by a web app on the server
+
+web apps:       lives on the server, speaks http, gnd enerates content that 
+                    browser requests
 
 ################################################################
 OFFICE HOURS
@@ -111,14 +122,15 @@ google app engine
 
     used to get a site up and running (easily)
     you write python files
-        launcher:   lets you start the app on the google's servers
-                    requires python installed on the machine
-                    can be used to then move your local code to the server
-            app config update:      console way of uploading code to server
+        launcher:               lets you start the app on the google's servers
+                                requires python installed on the machine
+                                you can then push local code to gaeserver
+        app config update:      console way of updating/loading code to server
+    
     large-scale projects on GAE?
         free at small scale
         pay for bandwidth, data store, etc
-        udacity runs on GAE, other also use it for production
+        udacity runs on GAE, others also use it for production
 
 front end development:
     JS and CSS are whats needed
@@ -127,31 +139,4 @@ front end development:
 
 challenges when developing reddit and hipmunk?
     thats what the class is all about (unit 7: how do build in the real world)
-
-
-
-    
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

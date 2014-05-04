@@ -13,7 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
+
 '''
 HOW WEBAPP2 WORKS
 
@@ -26,13 +26,6 @@ when a request is received to a resource,
 import webapp2
 import routes
 from validator import *
-
-test_form = '''
-    <form method='post' action='/testform'>
-        <input name='q'>
-        <input type='submit'>
-    </form>
-'''
 
 bday_form = '''
     <form method='post'>

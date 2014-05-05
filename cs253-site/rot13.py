@@ -47,6 +47,8 @@ def rot13(input_string):
     return new_str
 
 class MainPage(webapp2.RequestHandler):
+    # we don't escape here b/c it will only output ciphertext as
+    #   "" or what it gets from a POST request, which is escaped
     def write_form(self, ciphertext=""):
         self.response.out.write(rot13_form % { "textbox": ciphertext})
 

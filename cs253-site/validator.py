@@ -1,4 +1,5 @@
 import cgi
+import re
 
 months = [
     'January',
@@ -25,7 +26,7 @@ month_list = [m for m in months]
 
 # everything we get from the webpage will be an str
 #   so the first step should always be a conversion to the correct type
-#       since the comparisons won't work properly
+#   since the comparisons won't work properly
 
 
 def valid_month(month):
@@ -64,3 +65,29 @@ def escape_html(s):
 
 def cgi_escape_html(s):
     return cgi.escape(s, quote=True)
+
+# regex validation
+USER_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
+PASS_RE = re.compile(r"^.{3,20}$")
+EMAIL_RE = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
+
+def valid_username(s):
+    if USER_RE.match(s):
+        return True
+    else:
+        return False
+
+def valid_pass(s):
+    if PASS_RE.match(s):
+        return True
+    else:
+        return False
+
+def valid_verify(pass1, pass2):
+    return pass1 == pass2
+
+def valid_email(s):
+    if EMAIL_RE.match(s):
+        return True
+    else:
+        return False

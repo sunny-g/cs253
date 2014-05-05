@@ -66,6 +66,7 @@ class MainPage(webapp2.RequestHandler):
     def write_form(self, error="", month="", day="", year=""):
         # by default, all values are is empty
         # so on first page load, this will return "" for all values
+        # on subsequent loads, we want to return an escaped input
         self.response.out.write(bday_form % {
             "error-div": error,
             "month": cgi_escape_html(month),
@@ -110,7 +111,7 @@ class TestHandler(webapp2.RequestHandler):
 
 # the application
 app = webapp2.WSGIApplication([
-    (routes.bday,               MainPage),
-    (routes.bday + '/thanks',      ThanksHandler)],
+    (routes.bday,                   MainPage),
+    (routes.bday + '/thanks',       ThanksHandler)],
     debug=True)
 

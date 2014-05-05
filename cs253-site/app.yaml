@@ -11,3 +11,8 @@ handlers:
 - url: /unit2/rot13.*
   script: rot13.app
 
+- url: /unit2/signup.*
+  script: signup.app
+
+- url: /unit2/welcome.*
+  script: signup.app
